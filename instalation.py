@@ -20,12 +20,8 @@ commands_migrations = [
 	"python manage.py migrate"
 ]
 
-virtual_env_path = path.join(BASE_DIR, "venv", "Scripts", "activate")
-
-exec(open(virtual_env_path).read(), dict(__file__=virtual_env_path))
-
-def commands_run():
-	result = subprocess.run(commands_instalation, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+def commands_run(command):
+	result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	print(result.stdout.decode())
 	print(result.stderr.decode())
 
