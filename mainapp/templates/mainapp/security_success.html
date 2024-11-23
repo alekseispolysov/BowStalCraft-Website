@@ -1,0 +1,19 @@
+{% extends 'mainapp/base_template.html' %}
+{% load static from static %}
+
+{% block content %}
+
+<article class="article-system container-fluid">
+
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 bg-white text-center mb-3">
+			<h2 class="text-primary p-3">Thank you for your report</h2>
+			<img class="img-fluid p-3" style="width: 400px; height: 400px;" src="{% static 'images/marg good.png' %}" alt="check mark" />
+			<p class="p-3">For more information, please visit our <a href="{% url 'forum:forum-index-page' %}">forum</a> </p>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</article>
+
+{% endblock %}

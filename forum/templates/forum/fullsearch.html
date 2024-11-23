@@ -1,0 +1,82 @@
+{% extends 'mainapp/base_template.html' %}
+
+{% block content %}
+
+	<div class="row container-fluid">
+		<div class="col-md-12 mt-4">
+			<h1 class="text-primary text-center">Advanced search</h1>
+			<form method="POST">
+				{% csrf_token %}
+				  <div class="mb-3 row ms-3 me-3">
+				    <label for="iD" class="col-sm-2 col-form-label">Post ID</label>
+				    <div class="col-sm-10">
+				      <input type="number" name="iD" class="form-control" id="iD">
+				    </div>
+				  </div>
+				  <div class="mb-3 row ms-3 me-3">
+				    <label for="name" class="col-sm-2 col-form-label">Post name</label>
+				    <div class="col-sm-10">
+				      <input type="text" name="name" class="form-control" id="name">
+				    </div>
+				  </div>
+				  <div class="mb-3 row ms-3 me-3">
+				    <label for="author" class="col-sm-2 col-form-label">Author</label>
+				    <div class="col-sm-10">
+				      <input type="text" name="author" class="form-control" id="author">
+				    </div>
+				  </div>
+				  <div class="mb-3 row ms-3 me-3">
+				    <label for="topic" class="col-sm-2 col-form-label">Topic</label>
+				    <div class="col-sm-10">
+				      <input type="text" name="topic" class="form-control" id="topic">
+				    </div>
+				  </div>
+				  <div class="mb-3 row ms-3 me-3">
+				    <label for="tags" class="col-sm-2 col-form-label">Tags</label>
+				    <div class="col-sm-10">
+				      <input type="text" name="tags" class="form-control" id="tags">
+				      <small class="text-primary">A comma-separated list of tags.</small>
+				    </div>
+				  </div>
+				  <hr>
+				  <div class="mb-3 row ms-3 me-3">
+				  	<label for="greatrating" class="col-sm-2 col-form-label">Rating is greater then, or equal to</label>
+				    <div class="col-sm-2">
+				      <input type="number" name="greatrating" class="form-control" id="greatrating">
+				    </div>
+				    <label for="rating" class="col-sm-2 col-form-label">Rating, exact value</label>
+				    <div class="col-sm-2">
+				      <input type="number" name="rating" class="form-control" id="rating">
+				    </div>
+				    <label for="lessrating" class="col-sm-2 col-form-label">Rating is less then, or equal to</label>
+				    <div class="col-sm-2">
+				      <input type="number" name="lessrating" class="form-control" id="lessrating">
+				    </div>
+				  </div>
+				  <hr>
+				  <div class="mb-3 row ms-3 me-3">
+				    <label for="contains" class="col-sm-2 col-form-label">Text contains</label>
+				    <div class="col-sm-10">
+				      <input type="text" name="contains" class="form-control" id="contains">
+				    </div>
+				  </div>
+				  <hr>
+
+				  <div class="mb-3 row ms-3 me-3">
+				    <label for="date_after" class="col-sm-2 col-form-label">Created After</label>
+				    <div class="col-sm-4">
+				      <input type="text" name="date_after" class="form-control" id="date_after">
+				      <small class="text-primary">Date format: Year, Month, Day. eg(2020-12-03)</small>
+				    </div>
+				    <label for="date_before" class="col-sm-2 col-form-label">Created before</label>
+				    <div class="col-sm-4">
+				      <input type="text" name="date_before" class="form-control" id="date_before">
+				    </div>
+				  </div>
+				  <a href="{{request.META.HTTP_REFERER}}" class="btn btn-warning btn-lg">Go back</a>
+				  <button type="submit" class="btn btn-primary btn-lg">Search</button>
+			</form>
+		</div>
+	</div>
+
+{% endblock %}

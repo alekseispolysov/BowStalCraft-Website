@@ -1,0 +1,69 @@
+{% load static from static %}
+
+
+<div class="container-image">
+    <h1 class="text-on-imagetop-left sized-h1">BowStalCraft</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-transperensy text-on-image-top">
+      <div class="container-fluid">
+        <a href="{% url 'mainapp:home-page' %}"><img src="{% static 'images/logo.png' %}" class="navbar-brand navbar-brand-image-size"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- allign navbar to center -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" display="hidden"> 
+          </ul>
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            {% url 'mainapp:news-page' as url_news %}
+            <li>
+              <a class="nav-link {% if request.path == url_news %}active{% endif %}" href="{{url_news}}">News</a>
+            </li>
+            {% url 'forum:forum-index-page' as url_forum %}
+            <li>
+              <a class="nav-link {% if request.path == url_forum %}active{% endif %}" href="{{url_forum}}">Forum</a>
+            </li>
+            {% url 'mainapp:download-page' as url_download %}
+            <li>
+              <a class="nav-link {% if request.path == url_download %}active{% endif %}" href="{{url_download}}">Download</a>
+            </li>
+            {% url 'mainapp:support-us-page' as url_support %}
+            <li>
+              <a class="nav-link {% if request.path == url_support %}active{% endif %}" href="{{url_support}}">Support Us</a>
+            </li>
+            {% url 'mainapp:contact-page' as url_contact %}
+            <li>
+              <a class="nav-link {% if request.path == url_contact %}active{% endif %}" href="{{url_contact}}">Contact Us</a>
+            </li>
+            {% url 'mainapp:about-page' as url_about %}
+            <li>
+              <a class="nav-link {% if request.path == url_about %}active{% endif %}" href="{{url_about}}">About</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            {% if request.user.is_authenticated %}
+            {% url 'authentication:user-profile' as url_user_profile %}
+            <li>
+              <a class="nav-link {% if request.path == url_user_profile %}active{% endif %}" href="{{url_user_profile}}">Account</a>
+            </li>
+            {% if request.user.is_staff %}
+            <li>
+              <a class="nav-link text-danger" href="{% url 'admin:index' %}">Admin Panel</a>
+            </li>
+            {% endif %}     
+            {% else %}
+            {% url 'authentication:login' as url_login %}
+            <li>
+              <a class="nav-link {% if request.path == url_login %}active{% endif %}" href="{{url_login}}">Login</a>
+            </li>
+            {% url 'authentication:register-new-user-page' as url_register %}
+            <li>
+              <a class="nav-link {% if request.path == url_register %}active{% endif %}" href="{{url_register}}">Sign Up</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <img id="header-image"  src="{% static 'images/minecraft.png' %}">
+</div>

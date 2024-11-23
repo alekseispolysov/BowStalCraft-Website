@@ -1,0 +1,20 @@
+{% extends 'mainapp/base_template.html' %}
+
+{% block content %}
+<article class="article-system" style="padding:150px;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-5 mx-auto m-2 p-3 border article-system-bg-white">
+					<hr>
+					<h2 class="text-primary text-center">404 - Page not found</h2>
+					<div class="mb-3">
+						<h3 class="text-center">The page, you are searching for does not exist.</h3>
+						<div class="text-center">Please double check your url. Alternatively you can visit our <a href="{% url 'mainapp:home-page' %}">home page</a>.</div>
+					</div>		
+					<hr>			
+				</div>
+			</div>
+		</div>
+	</article>
+
+{% endblock %}

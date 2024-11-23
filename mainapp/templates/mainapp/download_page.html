@@ -1,0 +1,41 @@
+{% extends 'mainapp/base_template.html' %}
+{% load static from static %}
+
+{% block content %}
+
+<article class="article-system" >
+	<div class="container-fluid pb-4 pt-3">
+		<div class="row">
+			
+			<div class="col-sm-5 mx-auto m-2 p-3 mb-3 border article-system-bg-white">
+				<div class="">
+					<a href="https://github.com/Killlop/bowstalcraft"><img class="rounded my-auto mx-auto d-block image_resize" src="{% static 'images/download.png' %}"></a>	
+				</div>
+				
+			</div>
+			<div class="col-sm-5 mx-auto m-2 p-3 mb-3 border article-system-bg-white">
+				<h2 class="text-primary text-center pt-1 pb-1">Download</h2>
+				<hr>
+				<p>
+					You can download our files on the github. In case of any questions you can use 'contact us' form or ask a qustion
+					on our forum. If you found a bug, please <a href="{% url 'mainapp:secutiry-report-bug' %}">report it</a> as soon as possible.
+				</p>
+				<hr>
+				<h3 class="text-warning">Download links that are currently avaliable:</h3>
+				<ul>
+					<li><img src="{% static 'images/github.png' %}" class="foter_image"> Lates version <a href="https://github.com/Killlop/bowstalcraft">here</a></li>
+					<li><img src="{% static 'images/github.png' %}" class="foter_image"> Lates stable version <a href="https://github.com/Killlop/bowstalcraft">here</a></li>
+					<li><img src="{% static 'images/github.png' %}" class="foter_image"> List of <a href="https://github.com/Killlop/bowstalcraft">all versions</a></li>
+				</ul>
+				<div class="alert alert-info" role="alert">
+  					Latest release 1.0.0
+				</div>
+				<div class="alert alert-info" role="alert">
+  					Latest Stable version is 1.0.0
+				</div>
+			</div>
+		</div>
+	</div>
+</article>
+
+{% endblock %}

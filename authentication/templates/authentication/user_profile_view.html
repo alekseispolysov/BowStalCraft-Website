@@ -1,0 +1,46 @@
+{% extends 'mainapp/base_template.html' %}
+{% load static from static %}
+
+{% block content %}
+
+<article>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-2 mx-auto mt-2 p-3 border article-system-bg-white">
+				<img class="profile-picure-big mx-auto d-block" src="{{user_object.user_profile.profile_picture.url}}" alt="Profile Image">
+				<hr>
+				<div class="d-grid gap-0">
+					{% if request.user != user_object %}
+					<a href="{% url 'mainapp:secutiry-report-bug' %}" class="btn btn-dark" type="button">Report</a>
+					{% endif %}
+					<a href="{{request.META.HTTP_REFERER}}" class="btn btn-warning">Go back</a>
+				</div>
+
+			</div>
+			<div class="col-sm-8 mx-auto mt-2 pb-3 border article-system-bg-white">
+				
+				<h2 class="pt-2 text-primary text-center">{% if user_object.is_staff %}<i class="fas text-warning fa-crown"></i> {% endif %}{{user_object.username}}{% if user_object.is_staff %}<i class="fas text-warning fa-crown ms-2"></i> {% endif %}</h2>
+				<hr>
+				{% if request.user.is_authenticated and request.user != user_object and not user_object.is_staff %}
+				<div style="float:right;"><a class="btn btn-primary me-2" href="{% url 'mainapp:secutiry-report-bug' %}"><i class="fas fa-exclamation"></i></a>
+	    				<button class="btn btn-success d-inline text-nowrap" onclick="onUserThumbs('{{request.user.id}}', '{{user_object.id}}', 'like')"><i id="like" class="{% if relation_value <= 0 %}far{% else %}fas{% endif %} fa-thumbs-up"></i></button><button class="btn btn-danger d-inline text-nowrap" onclick="onUserThumbs('{{request.user.id}}', '{{user_object.id}}', 'dislike')"><i id="dislike" class="{% if relation_value >= 0 %}far{% else %}fas{% endif %} fa-thumbs-down"></i></button></div>
+				{% endif %}
+				<h4 class="text-info mb-3">Basic information <i class="fas fa-info-circle"></i></h4>
+				<p>Nickname: {{user_object.username}}</p>
+				<p>Firstname: {{user_object.first_name}}</p>
+				<p>Lastname: {{user_object.last_name}}</p>
+				<p>Reputation: {% if user_object.is_staff %}<span class="text-danger"><i class="fas fa-user-tie pe-3"></i><u>administrator</u><i class="fas fa-user-tie"></i></span>{% else %}<span id="repa">{{user_object.user_profile.reputation}}</span>{% endif %}</p>
+				<p>Description</p>
+				<p>{{user_object.user_profile.description}}</p>
+				<p class="float-start">Date joined: {{ user_object.date_joined }}</p>
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+	</div>
+</article>
+
+
+
+
+{% endblock %}

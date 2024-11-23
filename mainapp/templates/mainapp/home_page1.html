@@ -1,0 +1,62 @@
+{% extends 'mainapp/base_template.html' %}
+{% load static from static %}
+
+{% block content %}
+
+<article>
+	<section class="container-fluid">
+		<div class="row">
+			<div class="col-md-7">
+				<hr>
+				<h2 class="text-primary text-center">What is Bowcraft?</h2>
+				<hr>
+				<p>Bowcraft is a minecraft server that was one of the minecraft servers between 2015 and 2018. Our maximum online was 150 people palying at once. 
+				We were specializing on Survival, Survival games and Mini games. Right now you can download our own built maps and use it on your server. It is completele free</p>
+			</div>
+			<div class="col-md-5">
+				<img class="home-page-image-section img-fluid" src="{% static 'images/first_section_home.png' %}" alt="First_section_image">
+			</div>
+		</div>
+	</section>
+	<section class="container-fluid mt-5 mb-5">
+		<div class="row">
+			<div class="col-md-5">
+				<img class="home-page-image-section img-fluid" src="{% static 'images/second_section_home.jpg' %}" alt="Second_section_image">
+			</div>
+			<div class="col-md-7">
+				<hr>
+				<h2 class="text-primary text-center">Why it is free?</h2>
+				<hr>
+				<p>Family of the owners was in difficult situation and team desided to close the server until good times. Right now you can download all source files, except private ones. Maybe one day project would be restored.</p>
+			</div>
+		</div>
+	</section>
+	<section class="container-fluid">
+		<div class="row">
+			<div class="col-md-7">
+				<hr>
+				<h2 class="text-primary text-center">How can I use it?</h2>
+				<hr>
+				<p>You can download files with that link. The server is avaliable in specific versions of minecraft. You can read documentation.</p>
+			</div>
+			<div class="col-md-5">
+				<img class="home-page-image-section img-fluid" src="{% static 'images/third_section_home.jpg' %}" alt="Third_section_image">
+			</div>
+		</div>
+	</section>
+	<!-- last section -->
+	<section class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				<h2 class="text-center text-primary">Site Navigation</h2>
+				<img class="home-page-image-bottom-section" src="{% static 'images/hierarchy.png' %}">
+			</div>
+			<div class="col-md-6">
+				<h2 class="text-center text-primary">Support Us</h2>
+				<img class="home-page-image-bottom-section" src="{% static 'images/heart.png' %}">
+			</div>
+		</div>
+	</section>
+</article>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'mainapp/base_template.html' %}
+{% load static from static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<article>
+	<div class="container-fluid">
+		<div class="row">
+			{% include 'authentication/user_profile_aside.html' %}
+			<div class="col-sm-9 mx-auto m-2 p-3 border article-system-bg-white">
+				
+				<h2 class="text-primary text-center">Profile Settings</h2>
+				<hr>
+				<p>Username: {{user.username}}</p>
+				<p>Email: {{user.email}}</p>
+				<p>Reputation: {{user.user_profile.reputation}}</p>
+				
+				<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{form1 | crispy}}
+				{{form2 | crispy}}
+		
+				<input class="btn btn-primary" type="submit" name="Update Information" value="Update changes">
+				</form>
+
+			</div>
+		</div>
+	</div>
+</article>
+
+
+
+
+
+{% endblock %}

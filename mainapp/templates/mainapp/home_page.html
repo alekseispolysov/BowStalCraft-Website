@@ -1,0 +1,173 @@
+{% extends 'mainapp/base_template.html' %}
+{% load static from static %}
+
+{% block content %}
+
+<div class="container-image">
+    <h1 class="text-on-imagetop-left sized-h1">BowStalCraft</h1>
+    <img id="header-image"  src="{% static 'images/minecraft.png' %}">
+</div>
+
+
+<article>
+	
+	<!-- first section -->
+	
+	<section>
+		<div class="container-fluid row gx-5">
+			<div class="col-md-1"></div>
+			<div class="col-md-5 text-center mb-5 mt-5 center">
+				<hr>
+				<h2 class="text-primary">What is Bowstal - Craft?</h2>
+				<hr>
+				<p>
+					BowStalCraft is a pre-configured minecraft server, that you can use in your project
+				</p>
+			</div>
+			<div class="col-md-5 mb-5 mt-5">
+				<img class="img-fluid rounded mx-auto d-block img-thumbnail" src="{% static 'images/first_section_home.png' %}">
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+	</section>
+	
+	<!-- second section -->
+	
+	<section>
+		<div class="container-fluid row gx-5" id="flex-revese-element">
+			<div class="col-md-1"></div>
+			<div class="col-md-5 mb-5 mt-5">
+				<img class="img-fluid rounded mx-auto d-block img-thumbnail" src="{% static 'images/second_section_home.jpg' %}">
+			</div>
+			<div class="col-md-5 text-center mb-5 mt-5 center">
+				<hr>
+				<h2 class="text-primary">What does BowStal - Craft has?</h2>
+				<hr>
+				<p>
+					It has a lot of plugins pre-innstalled and properly configured on minecraft versions --- and ---. Additionaly it has a lot of built by hand maps. That you can use on your server.
+				</p>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+	</section>
+	
+	<!-- third section -->
+	
+	<section>
+		<div class="row gx-5 container-fluid">
+			<div class="col-md-1"></div>
+			<div class="col-md-5 text-center mb-5 mt-5 center">
+				<hr>
+				<h2 class="text-primary">How you can use it?</h2>
+				<hr>
+				<p>
+					You can use our configured server as the starter setup. If you want you can use all our maps in production, it is really up to you what to do!
+				</p>
+			</div>
+			<div class="col-md-5 mb-5 mt-5 ps-4 pe-4">
+				<img class="img-fluid rounded mx-auto d-block img-thumbnail" src="{% static 'images/third_section_home.jpg' %}">
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+	</section>
+	
+	<!-- cards the good side of our project -->
+
+	<section>
+		
+		<div class="row container-fluid">
+			<div class="col-md-1"></div>
+			<div class="col-md-10 mb-5 mt-5">
+				<hr>
+				<h2 class="text-primary text-center">Additional benefits</h2>
+				<hr>
+				<div class="row row-cols-1 row-cols-md-3 g-4">
+				  <div class="col ps-5 pe-5">
+				    <div class="card h-100">
+				      <img src="{% static 'images/spawn.jpg' %}" class="card-img-top hover-zoom" alt="...">
+				      <div class="card-body">
+				        <h5 class="card-title">Cool spawn</h5>
+				        <p class="card-text">The greates thing that we were working on is our hub map. It can look as more as old style, but we are proud of it</p>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="col ps-5 pe-5">
+				    <div class="card h-100">
+				      <img src="{% static 'images/java.png' %}" class="card-img-top" alt="...">
+				      <div class="card-body">
+				        <h5 class="card-title">Pre-installed and configured plugins</h5>
+				        <p class="card-text">You don't have to install additional plugins to be able to run server with your friends</p>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="col ps-5 pe-5">
+				    <div class="card h-100">
+				      <img src="{% static 'images/arena.png' %}" class="card-img-top" alt="...">
+				      <div class="card-body">
+				        <h5 class="card-title">Lots of great building and maps</h5>
+				        <p class="card-text">We were building the server all the time. And by now we have got 10 different survival games arenas. And that is only that got finished</p>
+				      </div>
+				    </div>
+				  </div>
+				</div>				
+			</div>
+			<div class="col-md-1"></div>
+		</div>		
+	</section>
+	
+
+	<!-- download -->
+
+	<section>
+		<div class="row gx-5 container-fluid">
+			<div></div>
+		</div>
+	</section>
+
+	<section>
+		<div class="row gx-5 container-fluid">
+			<div class="col-md-1">
+			</div>
+
+			<div class="col-md-10 pt-5 pb-5">
+				<hr>
+				<h2 class="text-primary text-center">Download the project</h2>
+				<hr class="mb-5">
+				<div class="card mb-2">
+					<div class="row g-0">
+						<div class="col-md-8 p-3 my-auto" >
+
+							<h3 class="text-warning">Download links that are currently avaliable:</h3>
+							<ul>
+								<li><img src="{% static 'images/github.png' %}" class="foter_image"> Lates version <a href="https://github.com/Killlop/bowstalcraft">here</a></li>
+								<li><img src="{% static 'images/github.png' %}" class="foter_image"> Lates stable version <a href="https://github.com/Killlop/bowstalcraft">here</a></li>
+								<li><img src="{% static 'images/github.png' %}" class="foter_image"> List of <a href="https://github.com/Killlop/bowstalcraft">all versions</a></li>
+							</ul>
+							<div class="alert alert-info" role="alert">
+			  					Latest release 1.0.0
+							</div>
+							<div class="alert alert-info" role="alert">
+			  					Latest Stable version is 1.0.0
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="bg-image hover-zoom">
+								<a href="https://github.com/Killlop/bowstalcraft"><img class="img-fluid w-100" src="{% static 'images/download.png' %}"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-1">
+			</div>
+		</div>
+	</section>
+
+	
+
+
+
+
+</article>
+
+{% endblock %}

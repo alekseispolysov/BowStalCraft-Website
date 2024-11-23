@@ -1,0 +1,26 @@
+{% extends 'mainapp/base_template.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<article>
+<div class="row container-fluid">
+	<div class="col-md-9 mt-3 mb-3">
+		<div class="card card-body">
+		<form method="POST" action="">
+			{% csrf_token %}
+
+			{{form.media}}
+
+			{{form|crispy}}
+
+			<input class="btn btn-primary" type="submit" name="" value="Update changes">
+			</form>
+		</div>
+	</div>
+
+	{% include 'forum/forum_navigation_sidebar.html' %}
+</div>
+</article>
+{% endblock %}
+

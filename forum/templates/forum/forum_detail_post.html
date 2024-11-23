@@ -1,0 +1,99 @@
+{% extends 'mainapp/base_template.html' %}
+{% load static from static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<article class="mb-5">
+	<div class="row container-fluid">
+
+		<div class="col-md-9 mt-3">
+
+			<div class="card card-body post forum-post-image">
+				<hr>
+				{% if post.topic == "Important" %}
+				<h2 class="text-danger text-center card p-1">{{post.name}}</h2>
+				{% else %}
+				<h2 class="text-primary text-center card p-1">{{post.name}}</h2>
+				{% endif %}
+				<hr>
+				<p class="">Topic: {{post.topic}}</p>
+				<p class="">Tags: 
+					<ul>
+				        {% for tag in post.tags.all %}
+				            <li class="tag"> {{ tag.name }} </li>
+				        {% endfor %}
+        			</ul>
+    			</p>
+
+    			<div style="align-items: center !important;">
+    			<span class="float-start">Reputation: <span id="repa"><u>{{ post.post_reputation }}</u></span></span><br><span class="float-start"><span id="people_voted_counter"><u>{{ post.people_voted }}</u></span> people voted on this post</span>
+    			<!-- кастыль -->
+    			{% if user.is_authenticated %}
+
+    			<div class="btn-toolbar pb-3" role="toolbar" aria-label="Toolbar with button groups">
+	    			<div class="btn-group d-flex w-25 ms-auto" role="group" aria-label="Actions with post">
+	    				<a class="btn btn-primary me-2" href="{% url 'mainapp:secutiry-report-bug' %}"><i class="fas fa-exclamation"></i></a>
+	    				<button class="btn btn-success d-inline text-nowrap" onclick="onPostThumbs('{{request.user.id}}', '{{post.id}}', 'like')"><i id="like" class="{% if relation_value <= 0 %}far{% else %}fas{% endif %} fa-thumbs-up"></i></button>
+	    				<button class="btn btn-danger d-inline text-nowrap" onclick="onPostThumbs('{{request.user.id}}', '{{post.id}}', 'dislike')"><i id="dislike" class="{% if relation_value >= 0 %}far{% else %}fas{% endif %} fa-thumbs-down"></i></button>
+	    			</div>
+    			</div>
+    			{% else %}
+
+    			{% endif %}
+    			</div>
+    			
+    			<div class="card p-3">
+    				{{post.content|safe}}
+				</div>
+				
+				<div class="">
+				<i class="p-3 float-end">{{post.date_created}}</i>
+				<p class="p-3 fload-start" style="text-indent: 0;">Author: | <a href="{% url 'authentication:user-view-profile' post.user.id %}"><img class="profile-pic-small" src="{{post.user.user_profile.profile_picture.url}}" alt="Autor image"/></a> | <a href="{% url 'authentication:user-view-profile' post.user.id %}">{{post.user.username}}</a>{% if post.user.is_staff %} | <i class="fas fa-user-tie text-danger"></i>{% endif %} | <i class="fas fa-crown crown"></i></p>
+				</div>
+				<hr>
+				<!-- comments -->
+				{% if request.user.is_authenticated %}
+				<form method="POST" action="">
+					{% csrf_token %}
+					{{form|crispy}}
+					<input class="btn btn-light mt-3" type="submit" name="" value="Post a comment">
+				</form>
+				{% else %}
+				{{next}}
+
+				To be able to write a comment please <a href="{% url 'authentication:login' %}?next={{request.path}}">Login</a>
+				{% endif %}
+
+				<!-- comments -->
+
+				<hr>
+				Comments ({{ comments.count }})
+				<hr>
+
+				{% for comment in comments reversed %}
+				<div class="comment">
+					<div class="">
+						<a href="{% url 'authentication:user-view-profile' comment.user.id %}"><img class="comment-image" src="{{comment.user.user_profile.profile_picture.url}}" alt="Profile Image"></a>
+					</div>
+					<div class="">
+						<div class="comment-nick" style="align-items: center;"><span class="text"><a href="{% url 'authentication:user-view-profile' comment.user.id %}">{{comment.user.username}}</a> {% if comment.user.is_staff %} | <i class="fas fa-user-tie text-danger"></i>{% endif %} {% if comment.user == post.user %}| <i class="fas fa-crown crown"></i>{% endif%}</span>
+						
+						<span class="comment-date-posted">{{ comment.date_created }}</span><i class="fas fa-clock comment-date-posted pe-1"></i>{% if request.user == comment.user or request.user.is_staff %} <a href="{% url 'forum:forum-delete-comment-post' comment.id %}"><i class="fas fa-times text-danger comment-date-posted pe-1"></i></a><a href="{% url 'forum:forum-edit-comment-post' comment.id %}"><i class="fas fa-edit comment-date-posted pe-1"></i></a>{% endif %}
+						</div>
+						<p class="card comment-text"> {{comment.text}} </p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+
+		</div>
+		{% include 'forum/forum_navigation_sidebar.html' %}
+	</div>
+</article>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,457 @@
+
+
+
+/* size up all text to 2 viewport sized (to make it responsive by default) */
+/* #todo checkout the bug with resizing in chrome__ */
+*{
+    font-size: 1vw;
+    
+}
+
+
+
+/* everything related to the header and navbar */
+/* navbar make it gradient from black and transperecy to the image*/
+.navbar-transperensy{
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+ }
+
+/* text on image (navbar on image respective) */
+/* container where we putting image and text */
+
+.container-image{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* placing text on top side of the image */
+
+.text-on-image-top {
+  position: absolute;
+
+  /*size: cover;*/
+
+  width: 100%;
+}
+
+/* placing text on left side of the image */
+
+.text-on-imagetop-left {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+}
+
+
+/* change image size to 100% to scale it with size of the page changes */
+
+.container-image #header-image{
+    width: 100%;
+    height: 37vw;
+    background: linear-gradient(180deg, rgba(33, 37, 41, 0) 60%, rgba(0,0,0,1) 100%);
+    margin-bottom: -3px;
+}
+
+/* scale text to 10vw (to the scale of the viewport, repectivy with -||-) + reponsivnes out of it */
+
+.sized-h1{
+    font-size: 10vw;
+}
+
+/* resize brand image in navbar */
+
+.navbar-brand-image-size{
+    width: 5vw;
+    height: 5vw;
+    color: rgba(0,0,0,0);
+}
+
+
+
+/* post related styles and article */
+/* making the block of post */
+
+article{
+    padding-top: 20px;
+}
+
+.post{
+    margin-bottom: 20px;
+}
+
+.post > img{
+    border:2px solid #DFDFDF;
+    border-radius: 1px;
+    margin: 20px;
+}
+
+.post p{
+    text-indent: 20px;
+}
+
+/* every other post is another collor */
+
+.post:nth-child(odd) {
+    background-color: #eaece5;
+}
+.post:nth-child(even) {
+    background-color: #c0ded9 ;
+}
+
+
+/* sticky sidebar */
+
+.sticky-sidebar{
+    position: sticky;
+    top: 6.4vw;
+    margin-bottom: 20px;
+}
+
+
+
+
+/* everything related to the footer here */
+/* trick to stick the footer to the bottom of the page*/
+
+body, html{
+    height: 100%
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+/* color footer up + */
+
+.footer{
+    margin-top: auto;
+    background-color:#212529;
+    color:white;
+    background: linear-gradient(180deg, rgba(33, 37, 41, 1) 70%, rgba(16,18,20, 1) 100%);
+}
+
+/* trickend */
+
+/* footer styles */
+footer{
+    text-align: center;
+}
+footer ul{
+    list-style: none;
+}
+footer a{
+    color: white;
+}
+footer h3{
+    padding: 10px;
+    text-align: center;
+}
+
+/* resized footer logos images */
+
+.foter_image{
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+
+
+
+
+
+/* navbar image resize */
+
+@media only screen and (min-width: 1500px) {
+
+  /*.navbar-brand-image-size {    
+    width: 100px;
+    height: 100px;
+  }*/
+
+}
+
+/* sidebar and latest 10 articles removed */
+
+@media only screen and (max-width: 767px) {
+    nav{
+        position: sticky;
+    }
+    .phone-hide{
+        display:none;
+    }
+}
+
+/* other pages then main */
+
+/* login system with bootstrap */
+
+.article-system{
+    background-color: #c0ded9;
+}
+.article-system-bg-white{
+    background-color: white;
+}
+
+
+/* user profile view */
+
+.profile-picure-big{
+    width: 150px;
+    height: 150px; 
+    border-radius: 50%; 
+    border: 5px solid gray;
+}
+
+
+/* user profile picture in forum-index view */
+
+.profile-pic-small{
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%; 
+    border: 2px solid gray;
+    margin-right: 5px;
+}
+
+.card .profile-pic-small{
+  margin-right: 0;
+}
+
+
+/* resize image */
+
+.image_resize{
+    width: 25vw;
+}
+
+/* resize image in forum post */
+
+.forum-post-image > p > img{
+    max-width: 250px;
+    max-height: 200px;
+}
+
+/* tags in forum */
+
+.tag{
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 1px 1px;
+  margin-left: 0;
+  border-radius: 16px;
+}
+
+/* all p on website has it red stroka*/
+p{
+  text-indent: 20px;
+}
+
+
+/* cetner image in center of the page*/
+
+/*.centered-image img{
+  vertical-align: middle;
+  display: inline-block;
+}*/
+
+/* image allginment on homepage */
+
+/*.home-page-image-section{
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+*/
+
+/*.home-page-image-bottom-section{
+  width: 400px;
+  height: 400px;
+}*/
+
+
+
+
+/* pictur*/
+
+
+.img-home-page{
+  width:40vw;
+}
+
+
+
+
+
+/* home page second section reverse */
+#flex-revese-element{
+  display: flex;
+  flex-direction: row;
+}
+
+
+@media only screen and (max-width: 767px) {
+    #flex-revese-element{
+      display: flex;
+      flex-direction: column-reverse;;
+    }
+}
+
+
+
+/* comments in news! */
+
+
+.comment{
+  display:grid;
+  grid-template-columns: 1fr 8fr;
+  padding: 10px;
+}
+
+.comment-nick{
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.comment-date-posted{
+  float: right;
+}
+
+.comment-text{
+  padding:1vw;
+}
+
+.comment-image{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%; 
+    border: 2px solid gray;
+    margin-right: 5px;
+}
+
+
+
+/*prevent line breaks in span in forms etc*/
+
+
+
+
+
+
+/* badge nontification */
+
+
+
+
+/* fix of the image on the news page */
+.news_img_responsive{
+  max-width: 100%;
+}
+
+
+/* centerize the home page content */
+.center{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+
+/* blank container */
+
+.blank-container{
+  min-height: 5.5vw;
+  width: 100%;
+}
+
+/*.news_blank{
+  min-height: 30px;
+}*/
+/*@media(max-width: 1338px){
+  .blank-container{
+    min-height: 50px;
+  }
+  .sticky-sidebar{
+    top: 50px;
+  }
+}
+@media(max-width: 1068){
+    .blank-container{
+    min-height: 40px;
+  }
+  .sticky-sidebar{
+    top: 40px;
+  }
+}*/
+
+main.main{
+  margin-top: 9px;
+}
+@media(max-width: 700){
+  main.main{
+    margin-top: 45px;
+  }
+}
+@media(max-width: 600){
+  main.main{
+    margin-top: 50px;
+  }
+}
+@media(max-width: 500){
+  main.main{
+    margin-top: 55px;
+  }
+}
+
+/* ck-editor */
+
+#cke_id_text{
+  width: auto !important;
+}
+
+#cke_description {
+    width: auto !important;
+}
+
+.django-ckeditor-widget {
+  width: 100%;
+}
+
+
+/* pointer cursor for images */
+.cursor-pointer{
+  cursor: pointer;
+}
+
+/* error fixes news all */
+/*.invalid-feedback{
+  display: none !important;
+}*/
+
+#error_1_id_start_date{
+  display: none !important;
+}
+
+#error_1_id_end_date{
+  display: none !important;
+}
+
+.crown{
+  color: #ffbb33;
+}
+
+
+/* quick fix for all pages, where navbar is over top of something */
+.quick_fix_class{
+  padding-top: 40px;
+}

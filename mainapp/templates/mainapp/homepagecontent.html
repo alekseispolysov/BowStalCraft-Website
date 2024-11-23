@@ -1,0 +1,23 @@
+{% load static from static %}
+<div class="col-md-6">
+	{% for post in object_list %}
+	<div class="card card-body post">
+		<h2>
+			{{ post.name }}
+		</h2>
+		<img onclick="window.location='{% url 'mainapp:post-detail' post.id %}'" class="img-fluid cursor-pointer" src="{{ post.preview_picture.url }}">
+		<p>
+			{{ post.preview_text }}
+		</p>
+		<span>
+			<a href="{% url 'mainapp:post-detail' post.id %}">Detail</a>
+			<i class="float-end">Posted: {{ post.date_created }}</i>
+		</span>
+	</div>
+	{% empty %}
+	<div class="card card-body post">
+		<h2 class="text-primary">There is no posts yet</h2>
+		<img src="{% static 'images/there_no_posts_yet.jpg' %}">
+	</div>
+	{% endfor %}
+</div>

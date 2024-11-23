@@ -1,0 +1,66 @@
+<div class="col-md-3 mt-3">
+	<div class="card card-body phone-hide sticky-sidebar">
+		<h2>Forum<br>Navigation</h2>
+		<hr>
+		<div class="btn-group d-grid" role="group" aria-label="Right side bar user management">
+				<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+				{% if user.is_authenticated %}
+				<button class="btn btn-dark" disabled>User: {{ user.get_username }} <i class="fas fa-user ms-1"></i></button>
+				<a href="{% url 'authentication:user-profile' %}" class="btn btn-primary">Account Preferences<i class="fas fa-cog ms-1"></i></a>
+				<a  href="{% url 'authentication:logout'%}" class="btn btn-primary">Logout<i class="fas fa-sign-out-alt ms-1"></i></a>
+				{% else %}  
+				  <a href="{% url 'authentication:register-new-user-page' %}?next={{request.path}}" class="btn btn-success">Sign up <i class="fas fa-user-plus ms-1"></i></a>
+				  <a href="{% url 'authentication:login'%}?next={{request.path}}" class="btn btn-primary">Login <i class="fas fa-sign-in-alt ms-1"></i></a>
+				{% endif %}
+				</div>
+			</div>
+		{% if request.user.is_authenticated %}
+		<hr>
+		<div class="btn-group d-grid" role="group" aria-label="Forum side bar preferences of the forum">
+			<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+
+			{% url 'forum:forum-create-post' as forum_create_post_url %}
+			{% if request.path != forum_create_post_url %}
+			<a class="btn btn-success" href="{% url 'forum:forum-create-post' %}">Create New Forum post +</a>
+			{% endif %}
+			
+			<a class="btn btn-info" href="{% url 'forum:forum-index-page' %}?name&user_username={{request.user.username}}">View my posts <i class="far fa-eye ms-2"></i></a>
+			
+			{% url 'forum:forum-detail-page' post.id as forum_detail_post_url %}
+			
+
+			{% if request.path != forum_create_post_url and request.path != forum_detail_post_url %}
+				{% if request.user.id == object.user.id or request.user.is_staff %}
+
+					<a class="btn btn-warning" href="{% url 'forum:forum-update-post' object.id %}">Edit post <i class="fas fa-edit ms-1"></i></a>
+					<a class="btn btn-danger" href="{% url 'forum:forum-delete-post' object.id %}">Delete post <i class="fas fa-trash-alt ms-1"></i></a>
+
+				{% endif %}
+			{% endif %}
+
+			<!-- fix for detail, cause it has other queryset and variables -->
+
+			{% if request.path == forum_detail_post_url %}
+			{% if request.user.id == post.user.id or request.user.is_staff %}
+			<a class="btn btn-warning" href="{% url 'forum:forum-update-post' post.id %}">Edit post <i class="fas fa-edit ms-1"></i></a>
+			<a class="btn btn-danger" href="{% url 'forum:forum-delete-post' post.id %}">Delete post <i class="fas fa-trash-alt ms-1"></i></a>
+			{% endif %}
+			{% endif %}
+			{% endif %}
+
+
+			</div>
+		</div>
+
+		{% if request.user.is_staff %}
+		<hr>
+
+		<div class="btn-group d-grid" role="group" aria-label="Admin panel">
+		<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+		
+		<a class="btn btn-danger" href="{% url 'admin:index' %}">Admin panel <i class="fas fa-tools ms-1"></i></a>
+		</div>
+		</div>
+		{% endif %}
+	</div>
+</div>

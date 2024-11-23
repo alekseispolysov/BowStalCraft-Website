@@ -1,0 +1,46 @@
+<div class="col-md-3">
+	<div class="card card-body phone-hide sticky-sidebar">
+		<h2>Sidebar</h2>
+		<hr>
+			<div class="btn-group d-grid" role="group" aria-label="Right side bar user management">
+				<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+				{% if user.is_authenticated %}
+				<button class="btn btn-dark" disabled>User: {{ user.get_username }} <i class="fas fa-user ms-1"></i></button>
+				<a href="{% url 'authentication:user-profile' %}" class="btn btn-primary">Account Preferences<i class="fas fa-cog ms-1"></i></a>
+				<a  href="{% url 'authentication:logout'%}" class="btn btn-primary">Logout<i class="fas fa-sign-out-alt ms-1"></i></a>
+				{% else %}  
+				   <a href="{% url 'authentication:register-new-user-page' %}?next={{request.path}}" class="btn btn-success">Sign up <i class="fas fa-user-plus ms-1"></i></a>
+				  <a href="{% url 'authentication:login'%}?next={{request.path}}" class="btn btn-primary">Login <i class="fas fa-sign-in-alt ms-1"></i></a>
+				{% endif %}
+				</div>
+			</div>
+		<hr>
+		<div class="btn-group d-grid" role="group" aria-label="Basic example">
+		<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+		<a id="scroll-top" class="btn btn-info" href="javascript:;"><i class="fas fa-arrow-up"></i></a>
+		<a id="scroll-bot" class="btn btn-info" href="javascript:;"><i class="fas fa-arrow-down"></i></a>
+		</div>
+		</div>
+		{% if messages %}
+		<hr>
+		{% for message in messages %}
+		<div class="container-fluid p-3">
+		  <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+		    {{ message }}
+		  </div>
+		</div>
+		{% endfor %}
+		{% endif %}
+
+		{% if request.user.is_staff %}
+		<hr>
+		<div class="btn-group d-grid" role="group" aria-label="Admin panel">
+		<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+		
+		<a class="btn btn-danger" href="{% url 'admin:index' %}">Admin panel <i class="fas fa-tools ms-1"></i></a>
+		</div>
+		</div>
+		{% endif %}
+	</div>
+</div>
+

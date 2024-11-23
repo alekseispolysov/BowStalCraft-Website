@@ -1,0 +1,56 @@
+
+
+{% load static from static %}
+
+    <footer class="footer container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>About Us</h3>
+                <p><a href="{% url 'mainapp:home-page' %}"><img src="{% static 'images/logo.png' %}" class="navbar-brand navbar-brand-image-size"></a>
+                
+                    Bowcraft is amazing server, try it out right now! We are waiting for you all the time!
+                    There is always stuff overhere and it is completely free. What could possibly go wrong?
+                </p>
+            </div>
+            <div class="col-md-3">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="{% url 'mainapp:home-page' %}">Home</a></li>
+                    <li><a href="{% url 'forum:forum-index-page' %}">Forum</a></li>
+                    <li><a href="{% url 'mainapp:download-page' %}">Download</a></li>
+                    <li><a href="{% url 'mainapp:support-us-page' %}">Support Us</a></li>
+                    <li><a href="">Search</a></li>
+                    <li><a href="{% url 'mainapp:about-page' %}">About</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h3>Social Media</h3>
+                <ul>
+                    <li><img src="{% static 'images/logos_copyright/facebook-logo.png' %}" class="foter_image"><a href="">Facebook</a></li>
+                    <li><img src="{% static 'images/logos_copyright/vk-reproductor.png' %}" class="foter_image"><a href="">VK</a></li>
+                    <li><img src="{% static 'images/logos_copyright/instagram-logo.png' %}" class="foter_image"><a href="">Instagram</a></li>
+                    <li><img src="{% static 'images/logos_copyright/discord.png' %}" class="foter_image"><a href="">Discord</a></li>
+                    <li><img src="{% static 'images/logos_copyright/reddit-logo.png' %}" class="foter_image"><a href="">Reddit</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h3>Contact Us</h3>
+                <form method="POST" action="{% url 'mainapp:contact-page' %}">
+                    {% csrf_token %}
+                    <ul>        
+                        <li><label for="email">Your email address: </label><br><input name="email" type="text" id="email"></li>
+                        <li><label for="subject">Subject: </label><br><input name="subject" type="text" id="subject"></li>
+                        <li><label for="textarea">Text of email: </label><br><textarea name="text" id="textarea"></textarea></li>
+                        <li><br><input class="btn btn-light" type="submit" name="" value="Submit"></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    Bowcraft copyright &#169; <script>document.write(new Date().getFullYear());</script>
+                </div>
+            </div>
+        </div>
+    </footer>

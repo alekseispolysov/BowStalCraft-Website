@@ -1,0 +1,19 @@
+<div class="col-sm-3 mx-auto m-2 p-3 border article-system-bg-white">
+	<img class="profile-picure-big mx-auto d-block" src="{{user.user_profile.profile_picture.url}}" alt="Profile Image">
+	<hr>
+	<div class="d-grid gap-0">
+			
+	</div>
+
+	<div class="btn-group d-grid" role="group" aria-label="Admin panel">
+	<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+		{% url 'authentication:user-profile' as url_profile %}
+		<a class="btn btn-dark {% if request.path == url_profile %}disabled{% endif %}" type="button" href="{{ url_profile }}">General</a>
+			
+			<a href="{% url 'authentication:user-view-profile' request.user.id %}" class="btn btn-dark">View Profile</a>
+			<a class="btn btn-warning" href="{% url 'authentication:logout' %}">Logout</a>
+
+	</div>
+	</div>
+
+</div>

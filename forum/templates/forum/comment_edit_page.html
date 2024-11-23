@@ -1,0 +1,25 @@
+{% extends 'mainapp/base_template.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<article class="article-system">
+<div class="row container-fluid ">
+	<div class="col-md-2"></div>
+	<div class="col-md-8 text-center bg-white mb-3 mt-3">
+		<h1 class="text-primary mt-3">Edit comment</h1>
+		<form class="p-3" method="POST">
+			{% csrf_token %}
+
+			{{form|crispy}}
+
+			<div class="mb-1 mt-3">
+			<a class="btn btn-warning" href="{{request.META.HTTP_REFERER}}">Cancel</a><button class="btn btn-primary" type="submit">Update changes</button>
+			</div>
+		</form>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+</article>
+{% endblock %}
+

@@ -1,0 +1,36 @@
+{% extends 'mainapp/base_template.html' %}
+{% load static from static %}
+
+{% block content %}
+
+<article class="article-system" >
+	<div class="container-fluid pb-4 pt-3">
+		<div class="row">
+			
+			<div class="col-sm-5 mx-auto m-2 p-3 mb-3 border article-system-bg-white">
+				<div class="">
+					<img class="rounded my-auto mx-auto d-block image_resize" src="{% static 'images/heart.png' %}">	
+				</div>
+				
+			</div>
+			<div class="col-sm-5 mx-auto m-2 p-3 mb-3 border article-system-bg-white">
+				<h2 class="text-primary text-center pt-1 pb-1">Support us</h2>
+				<hr>
+				<p>
+					You can support us by donating. Alternatively you can make a regular donation to help us host the project. 
+				</p>
+				<hr>
+				<h3 class="text-warning">Donate us via:</h3>
+				
+				<div class="alert alert-info" role="alert">
+  					PayPal | send money to this wallet: 423092807532075027
+				</div>
+				<div class="alert alert-info" role="alert">
+  					Regular donation | will help
+				</div>
+			</div>
+		</div>
+	</div>
+</article>
+
+{% endblock %}

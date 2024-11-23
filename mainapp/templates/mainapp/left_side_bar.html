@@ -1,0 +1,28 @@
+<div class="col-md-3">
+	<div class="card card-body phone-hide sticky-sidebar">
+		{% url 'mainapp:news-page' as url_news %}
+		{% if request.path == url_news %}
+		<h2>Post History</h2>
+		
+		<hr>
+		<table class="table table-striped table-hover ">
+		{% for post in object_list %}
+		<tr class="">
+			<td class="h-25 text-center" style="padding: 10px !important;">
+				
+				<a class="text-center" href="{% url 'mainapp:post-detail' post.id %}">{{ post.name }}</a>
+				
+			</td>
+		</tr>
+		{% endfor %}
+		</table>	
+		<a class="btn btn-primary" href="{% url 'mainapp:news-all' %}">Show all ({{ news_count }})</a>
+		{% else %}
+		<h2>News navigation</h2>
+		<hr>
+		<a class="btn btn-primary" href="{% url 'mainapp:news-page' %}">News page</a>
+		<a class="btn btn-info" href="{% url 'mainapp:news-all' %}">All news</a>
+		<a href="{{request.META.HTTP_REFERER}}" class="btn btn-warning">Go back</a>
+		{% endif %}
+	</div>
+</div>

@@ -1,0 +1,27 @@
+{% extends 'mainapp/base_template.html' %}
+
+{% block content %}
+
+<div class="news_blank"></div>
+
+<article class="container-fluid">
+	<div class="row">
+	<!-- include left sidebar -->
+	{% include 'mainapp/left_side_bar.html' %}
+
+	{% block page_content %}
+
+	{% endblock %}
+
+	<!-- include right sidebar -->
+	{% include 'mainapp/right_side_bar.html' %}
+
+	</div>
+</article>
+
+<!-- include pageination -->
+{% url 'mainapp:news-page' as url_news %}
+{% if request.path == url_news %}
+{% include 'mainapp/pagination.html' %}
+{% endif %}
+{% endblock %}

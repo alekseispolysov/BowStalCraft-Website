@@ -1,0 +1,98 @@
+{% load static from static %}
+
+<!-- Footer -->
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+
+
+
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">About Us</h5>
+
+            <p>
+                Bowcraft is amazing pre-configured minecraft server. You can download and use it. It is completele free, delivered by MIT licence.
+            </p>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-3">Navigation</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="{% url 'mainapp:home-page' %}" class="text-white">Home</a>
+            </li>
+            <li>
+              <a href="{% url 'forum:forum-index-page' %}" class="text-white">Forum</a>
+            </li>
+            <li>
+              <a href="{% url 'mainapp:download-page' %}" class="text-white">Download</a>
+            </li>
+            <li>
+              <a href="{% url 'mainapp:support-us-page' %}" class="text-white">Support Us</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-3">Social media</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="https://github.com/alekseispolysov/Bowstal-Craft" class="text-white"><i class="fab fa-github me-1"></i>Github</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white"><i class="fab fa-facebook-f me-1"></i>Facebook</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white"><i class="fab fa-discord me-1"></i>Discord</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white"><i class="fab fa-instagram me-1"></i>Instagram</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Contact Us</h5>
+
+        <form method="POST" action="{% url 'mainapp:contact-page' %}">
+            {% csrf_token %}
+            <ul>        
+                <li><label for="email">Your email address: </label><br><input name="email" type="text" id="email"></li>
+                <li><label for="subject">Subject: </label><br><input name="subject" type="text" id="subject"></li>
+                <li><label for="textarea">Text of email: </label><br><textarea name="text" id="textarea"></textarea></li>
+                <li><br><input class="btn btn-primary btn-lg rounded-pill" type="submit" name="" value="Submit"></li>
+            </ul>
+        </form>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    &#169; copyright
+    <a class="text-white" href="{% url 'mainapp:home-page' %}">BowStalCraft</a> <script>document.write(new Date().getFullYear());</script>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
