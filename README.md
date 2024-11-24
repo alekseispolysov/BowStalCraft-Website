@@ -70,7 +70,7 @@ deactivate
 More advanced fitures of website include:
 - Creating, editing, viewing, deleting, real time voting for posts
 
-![Forum post image](BowstalCraftForum.png)
+![Forum post image](BowstalCraftPost.png)
 
 - User Authentication and user editing profile
 
