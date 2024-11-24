@@ -1,5 +1,5 @@
 # Bowstal-Craft
-![Alt text](BowstalCraft.png)
+![BowstalCraft Image](BowstalCraft.png)
 
 ## Description
 
@@ -58,7 +58,7 @@ python manage.py runserver (optionally: type your address where you want the ser
 
 Navigate to http://127.0.0.1:8000/forum/, you should see something like this:
 
-![Alt text](BowstalCraftForum.png)
+![Example image](BowstalCraftForum.png)
 
 When you done you can stop server by CTRL + BREAK and deactivate your virtual enviroment:
 ```
@@ -70,15 +70,15 @@ deactivate
 More advanced fitures of website include:
 - Creating, editing, viewing, deleting, real time voting for posts
 
-image
+![Forum post image](BowstalCraftForum.png)
 
 - User Authentication and user editing profile
 
-image
+![Profile image](BowstalCraftProfile.png)
 
 - Living comments under posts
 
-image
+![Adding comments image](BowstalCraftComments.png)
 
 
 ## Contribution
