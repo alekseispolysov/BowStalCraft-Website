@@ -67,6 +67,19 @@ deactivate
 
 ## Usage
 
+More advanced fitures of website include:
+- Creating, editing, viewing, deleting, real time voting for posts
+
+image
+
+- User Authentication and user editing profile
+
+image
+
+- Living comments under posts
+
+image
+
 
 ## Contribution
 
