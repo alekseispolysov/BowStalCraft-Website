@@ -7,11 +7,11 @@ This is a BowstalCraft! A website made on Django for your brand new minecraft se
 
 ## Why?
 
-I was having my own Minecraft server when I was young. Then when I was studying high school, my thoughts were all about making website for Minecraft server, where we can share information with players of the server.
+I was having my own Minecraft server when I was young. Then, when I was studying high school, my thoughts were all about making website for Minecraft server, where we can share information with players of the server.
 
 ## Quick-start
 
-To successefully install Bowstal-Craft django website project on your machine, you will need python version 3.12.5 or higher. 
+To successfully install Bowstal-Craft django website project on your machine, you will need python version 3.12.5 or higher. 
 
 Check python version in command prompt:
 ```
@@ -20,19 +20,19 @@ python --version
 
 **Don't forget to check if your python is in system path variable on Windows**
 
-If you have right python version you can continue by installing virtual enviroment package with pip package manager. Open your command prompt and type this command:
+If you have right python version you can continue by installing virtual environment package with pip package manager. Open your command prompt and type this command:
 ```
 pip install virtualenv
 ```
 
-After you downloaded or cloned project, navigate to its folder (BowStalCraft-Website) and activate virtual enviroment by typing in command prompt:
+After you downloaded or cloned project, navigate to its folder (BowStalCraft-Website) and activate virtual environment by typing in command prompt:
 ```
 python -m venv venv
 ```
 
-**Important: the virtual enviroment name should be venv, otherwise you will have conflicts with paths in execution code bellow**
+**Important: the virtual environment name should be venv, otherwise you will have conflicts with paths in execution code bellow**
 
-Then activate your virtual enviroment:
+Then activate your virtual environment:
 ```
 .\venv\Scripts\activate
 ```
@@ -60,14 +60,14 @@ Navigate to http://127.0.0.1:8000/forum/, you should see something like this:
 
 ![Example image](BowstalCraftForum.png)
 
-When you done you can stop server by CTRL + BREAK and deactivate your virtual enviroment:
+When you're done, you can stop server by CTRL + BREAK and deactivate your virtual environment:
 ```
 deactivate
 ```
 
 ## Usage
 
-More advanced fitures of website include:
+More advanced features of the website include:
 - Creating, editing, viewing, deleting, real time voting for posts
 
 ![Forum post image](BowstalCraftPost.png)
@@ -79,8 +79,3 @@ More advanced fitures of website include:
 - Living comments under posts
 
 ![Adding comments image](BowstalCraftComments.png)
-
-
-## Contribution
-
-
